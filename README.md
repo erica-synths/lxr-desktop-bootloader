@@ -5,7 +5,7 @@ Lives in flash sector 0 (0x08000000–0x08007FFF, 32 KB).
 - **Normal boot:** jumps to the application at 0x08008000, provided a valid application is there
   (its initial stack pointer is 0x20080000).
 - **Update:** with the encoder button held at power-up, it reads an update image from the SD card
-  (`LXR*.img`, or `LXRE*.img` for the Eurorack module), checks its header and checksum, programs it
+  (`LXR*.img`), checks its header and checksum, programs it
   to 0x08008000 and resets.
 
 Update images are produced by the application build (`LXR_V2_V<version>.img`).
@@ -20,8 +20,7 @@ full-flash image (`LXR_V2_V<version>_full.hex`) and a `flash_full` target. Give 
 Building the bootloader on its own needs the same tools as the firmware (CMake ≥ 3.21, Ninja, arm-none-eabi-gcc):
 
 ```sh
-cmake --preset release              # desktop
-cmake --preset eurorack-release     # Eurorack module (EURORACK_MODULE=1)
+cmake --preset release
 cmake --build --preset release
 cmake --build --preset release --target flash_bootloader   # program the bootloader only (OpenOCD + ST-Link)
 ```
@@ -34,7 +33,6 @@ the debug probe.
 | Preset             | Flags                        | Output                                  |
 |--------------------|------------------------------|-----------------------------------------|
 | `release`          | `-Os`                        | `LXR_V2_STM32F765_Bootloader.{elf,hex,bin,map}` |
-| `eurorack-release` | `-Os`, `EURORACK_MODULE=1`   | `LXR_V2_Eurorack_Bootloader.{elf,hex,bin,map}`  |
 | `debug`            | `-Og -g3`, `DEBUG` defined   | `LXR_V2_STM32F765_Bootloader.*`         |
 
 The toolchain file and shared CMake modules are in the repository's top-level `cmake/` folder.
