@@ -13,10 +13,10 @@ cmake_minimum_required(VERSION 3.21)
 #   cmake --preset eurorack-release   (Eurorack module, EURORACK_MODULE=1)
 #   cmake --build --preset release
 #
-# The application project (../LXR_V2_STM32F765) also builds this as a
+# The firmware project (lxr_desktop_app, with -DLXR_BOOTLOADER_DIR) also builds this as a
 # subdirectory to produce a combined bootloader + application image.
 
-set(LXR_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}/../cmake")
+set(LXR_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake")
 if(NOT CMAKE_TOOLCHAIN_FILE AND CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     set(CMAKE_TOOLCHAIN_FILE "${LXR_CMAKE_DIR}/arm-none-eabi.cmake")
 endif()

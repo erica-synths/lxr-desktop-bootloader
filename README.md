@@ -35,7 +35,7 @@ the debug probe.
 | `release`          | `-Os`                        | `LXR_V2_STM32F765_Bootloader.{elf,hex,bin,map}` |
 | `debug`            | `-Og -g3`, `DEBUG` defined   | `LXR_V2_STM32F765_Bootloader.*`         |
 
-The toolchain file and shared CMake modules are in the repository's top-level `cmake/` folder.
+The toolchain file and the CMake modules and tools are in the `cmake/` folder.
 
 ### Cleaning the build
 
@@ -52,7 +52,7 @@ for details.
 
 ## Licence
 
-Copyright (C) 2012-2026 Erica Synths. Licensed under the [GNU General Public License version 3](../LICENSE)
-with the additional permission and terms in [NOTICE.md](../NOTICE.md). The names "Erica Synths" and "LXR"
+Copyright (C) 2012-2026 Erica Synths. Licensed under the [GNU General Public License version 3](LICENSE)
+with the additional permission and terms in [NOTICE.md](NOTICE.md). The names "Erica Synths" and "LXR"
 and the LXR hardware are the property of Erica Synths and are not covered by this licence; see
-[NOTICE.md](../NOTICE.md).
+[NOTICE.md](NOTICE.md).
